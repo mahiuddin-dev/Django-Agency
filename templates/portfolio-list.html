@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block title %} Portfolio {% endblock  %}
+{% load static %} {% block body %}
+
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">All Projects</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>Projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Project Section :::... -->
+<div class="project-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="project-filter-wrapper section-fluid-170">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="projects-gallery-filter-nav">
+              <button class="btn active" data-filter="*">All</button>
+              
+              {% for cat in category %}  
+              <button class="btn" data-filter=".{{cat.category}}">{{ cat.category }}</button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-item-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="project-items mb-n25">
+              <div class="row">
+
+                
+                {% for project in page_obj %}     
+                    
+                <!-- Start Project Single Item -->
+                <div class="col-xl-6 col-md-6 mb-25 filter-item {{ project.Category }}">
+                  <a href="{% url 'Projects:ProjectDetail' slug=project.slug %}" class="project-single-item">
+                    <div class="image img-responsive">
+                      <img
+                        src="{{ project.Image.url }}"
+                        alt=""
+                      />
+                    </div>
+                    <div class="content">
+                      <div class="inner">
+                        <div class="text">
+                          <h4 class="title"> {{ project.ProjectName }} </h4>
+                          <span class="catagory"> {{ project.Client }} </span>
+                        </div>
+                        <div class="icon">
+                          <img
+                            class="img-fluid"
+                            src="{% static 'images/icons/right-arrow-white.png' %}"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- End Project Single Item -->
+
+                {% endfor %}
+
+              </div>
+            </div>
+
+            {% if page_obj %}
+            <!-- Start Page Pagination -->
+           <div class="d-flex justify-content-center">
+               <ul class="page-pagination">
+                   {% if page_obj.has_previous %}
+                   <li class="active">
+                       <a href="?page={{ page_obj.previous_page_number }}"> Prev.</a>
+                   </li>
+                   {% endif %} 
+
+                   {% load l10n %} 
+
+                   {% for service in page_obj.paginator.page_range %}
+                   
+                   {% if page_obj.number == service %}
+                   <li class="active">
+                       <a href="?page={{ service }}"> 
+                           {{ service | localize }}
+                        </a>
+                   </li>
+                   {% else %}
+
+                   <li><a href="?page={{ service }}">{{ service }}</a></li>
+                   {% endif %} 
+                   {% endfor %} 
+
+                   {% if page_obj.has_next %}
+
+                   <li class="next">
+                       <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                   </li>
+                   {% endif %}
+
+
+                   <!-- <li class="next"><a href="#"><i class="icofont-long-arrow-right"></i></a></li> -->
+
+               </ul>
+           </div>
+            <!-- Start Page Pagination -->
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Project Section :::... -->
+
+<!-- Start Subscribe Banner -->
+<div class="subscribe-banner section-top-gap-150">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 col-xl-6">
+        <div class="content">
+          <h6 class="big-text">
+            Stay connect with us, get daily & weekly update.
+          </h6>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+          >Subscribe Now <i class="icofont-double-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subscribe Banner -->
+
+{% endblock %}

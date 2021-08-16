@@ -1,0 +1,430 @@
+
+{% extends 'base.html' %}
+{% block title %} About {% endblock  %}
+{% load static %}
+
+{% block body %}
+
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">About Company</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>about</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Content Display Section :::... -->
+<div class="content-display-section section-top-gap-150">
+  <div class="box-wrapper custom-box-wrapper about-box-wrapper pos-relative">
+    <div class="content-inner-img content-inner-img-left">
+      <img
+        class="img-fluid"
+        src="{% static 'images/section-image/section-image-1.png' %}"
+        alt=""
+      />
+    </div>
+    <div class="section-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 pos-relative">
+            <div
+              class="
+                custom-section-content
+                custom-section-content-about
+                custom-section-content-right
+              "
+            >
+              <div class="section-content section-content-gap-50">
+                <h3 class="section-title">
+                  We are best and experienced startup agency.
+                </h3>
+              </div>
+              <p>
+                There are many variations passages and available sheets but
+                majority have agency versions have years suffer alteration some
+                form humour.
+              </p>
+
+              <ul class="default-iconic-item-2">
+                <li>
+                  <div class="icon"><i class="icofont-check"></i></div>
+                  <div class="content">
+                    <h4 class="smalltitle">Mission & Vission</h4>
+                    <p>
+                      There many variations passages available sheets but
+                      majority have versions have years alteration some form
+                      humour.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon"><i class="icofont-check"></i></div>
+                  <div class="content">
+                    <h4 class="smalltitle">Company Value</h4>
+                    <p>
+                      There many variations passages available sheets but
+                      majority have versions have years alteration some form
+                      humour.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+                >Get Started <i class="icofont-double-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Content Display Section :::... -->
+
+<!-- ...::: Start Count Display Section :::... -->
+<div class="count-display section-fluid-200 section-top-gap-150 section-inner-padding-100 section-inner-bg">
+  <div class="box-wrapper">
+    <div class="count-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <ul class="counter-items counter-items-style-2">
+              <!-- Start Counter Single Items  -->
+              <li class="counter-single-item">
+                <div class="count-box">
+                  <img src="{% static 'images/icons/count-shape-blue.png' %}" alt="" />
+                  <p class="text"><span class="counter">76</span>%</p>
+                </div>
+                <h6 class="title">Happy Client’s</h6>
+              </li>
+              <!-- End Counter Single Items  -->
+              <!-- Start Counter Single Items  -->
+              <li class="counter-single-item">
+                <div class="count-box">
+                  <img
+                    src="{% static 'images/icons/count-shape-orange.png' %}"
+                    alt=""
+                  />
+                  <p class="text"><span class="counter">88</span>%</p>
+                </div>
+                <h6 class="title">Positive Rating</h6>
+              </li>
+              <!-- End Counter Single Items  -->
+              <!-- Start Counter Single Items  -->
+              <li class="counter-single-item">
+                <div class="count-box">
+                  <img
+                    src="{% static 'images/icons/count-shape-purple.png' %}"
+                    alt=""
+                  />
+                  <p class="text"><span class="counter">98</span>%</p>
+                </div>
+                <h6 class="title">Projects Done</h6>
+              </li>
+              <!-- End Counter Single Items  -->
+              <!-- Start Counter Single Items  -->
+              <li class="counter-single-item">
+                <div class="count-box">
+                  <img src="{% static 'images/icons/count-shape-pink.png' %}" alt="" />
+                  <p class="text"><span class="counter">85</span>%</p>
+                </div>
+                <h6 class="title">Professional Skills</h6>
+              </li>
+              <!-- End Counter Single Items  -->
+              <!-- Start Counter Single Items  -->
+              <li class="counter-single-item">
+                <div class="count-box">
+                  <img
+                    src="{% static 'images/icons/count-shape-yellow.png' %}"
+                    alt=""
+                  />
+                  <p class="text"><span class="counter">75</span>%</p>
+                </div>
+                <h6 class="title">Business Growth</h6>
+              </li>
+              <!-- End Counter Single Items  -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Count Display Section :::... -->
+
+<!-- ...::: Start Team Display Section :::... -->
+<div class="team-display section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="section-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 offset-xl-3">
+            <div class="section-content section-content-gap-80 text-center">
+              <h6 class="section-tag tag-orange">Team Member</h6>
+              <h3 class="section-title">
+                Meet our awesome & dedicated team member’s
+              </h3>
+              <span class="icon-seperator"
+                ><img
+                  src="{% static 'images/icons/section-seperator-shape.png' %}"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="team-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Start Team SLider -->
+            <div class="team-slider default-slider">
+              <!-- Slider main container -->
+              <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  {% for member in team_member %}
+                  <!-- Start Team Single Items -->
+                  <div class="team-single-item swiper-slide">
+                    <div class="top">
+                      <div class="image img-responsive">
+                        <img src="{{ member.Image.url }}" alt="{{ member.Name }}" />
+                      </div>
+                      <div class="content">
+                        <h4 class="name"> {{ member.Name }} </h4>
+                        <span class="profession"> {{ member.Job_Role }} </span>
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="content">
+                        <h4 class="name">{{ member.Name }}</h4>
+                        <span class="profession">{{ member.Job_Role }}</span>
+                      </div>
+                      <ul class="social-link">
+                      {% for link in member.sociallink_set.all %}
+                        <li>
+                          <a target='_blank' href="{{ link.Social_Media_link }}"
+                            ><i class="icofont-{{link.Social_Media_Name|lower}}"></i
+                          ></a>
+                        </li>
+                      {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End Team Single Items -->
+                  {% endfor %}
+                </div>
+              </div>
+              <!-- Navigation buttons -->
+              <div class="default-slider-buttons">
+                <div class="slider-button button-prev">
+                  <i class="icofont-long-arrow-left"></i>
+                </div>
+                <div class="slider-button button-next">
+                  <i class="icofont-long-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+            <!-- End Team SLider -->
+            <div class="d-flex justify-content-center">
+              <a
+                href="{% url 'Contact:Contact' %}"
+                class="
+                  btn btn-lg btn-default-outline btn-section-bottom
+                  icon-right
+                "
+                >Join Now <i class="icofont-double-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Team Display Section :::... -->
+
+<!-- ...::: Start Company Logo Display Section :::... -->
+<div class="company-logo-display-section section-fluid-135 company-logo-border">
+  <div class="box-wrapper">
+    <div class="company-logo-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Start Company Logo Slider -->
+            <div class="company-logo-slider">
+              <!-- Slider main container -->
+              <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  
+                  {% for logo in clientLogo %}  
+            
+                  <!-- Start Company Logo Single Item -->
+                  <div class="company-logo-single-item swiper-slide">
+                    <a href="#" class="image"
+                      ><img
+                        src="{{ logo.Image.url }}"
+                        alt="{{ logo.Name }}"
+                    /></a>
+                  </div>
+                  <!-- End Company Logo Single Item Tanvir@85 -->
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <!-- End Company Logo Slider -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Company Logo Display Section :::... -->
+
+<!-- ...::: Start Testimonial Display Section :::... -->
+<div class="testimonial-display-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="section-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2">
+            <div class="section-content section-content-gap-80 text-center">
+              <h6 class="section-tag tag-blue">Client Feedback</h6>
+              <h3 class="section-title">
+                This is some of strane honorable customer feedback.
+              </h3>
+              <span class="icon-seperator"
+                ><img
+                  src="{% static 'images/icons/section-seperator-shape.png' %}"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Start Testimonial Slider - Content -->
+            <div class="testimonial-content-slider">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                  
+                  {% for feedback in clientfeadback %}
+                      
+                  <!-- Start Testimonial Single Content Item-->
+                  <div class="testimonial-single-content-item swiper-slide">
+                    <p>
+                      {{ feedback.Feedback }}
+                    </p>
+                    <ul class="review-star">
+                      
+                      {% if feedback.Feedback_Star == '5' %}
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>  
+               
+                      {% elif feedback.Feedback_Star == '4' %}
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+
+                      {% elif feedback.Feedback_Star == '3' %}
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+
+                      {% elif feedback.Feedback_Star == '2' %}
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+
+                      {% else %}
+                      <li class="fill"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+                      <li class="blank"><i class="icofont-star"></i></li>
+
+                      {% endif %}
+    
+                    </ul>
+                  </div>
+                  <!-- End Testimonial Single Content Item -->
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            <!-- End Testimonial Slider - Content -->
+            <!-- Start Testimonial Slider - Thumbnail -->
+            <div class="testimonial-thumb-slider">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                  {% for feedback in clientfeadback %}
+                  <!-- Start Testimonial Single Thumb Item -->
+                  <div class="testimonilal-single-thumb-item swiper-slide">
+                    <div class="image">
+                      <img
+                        src="{{ feedback.Client_Image.url }}"
+                        alt="{{ feedback.Client_Name }}"
+                      />
+                    </div>
+                    <div class="content">
+                      <h4 class="name">{{ feedback.Client_Name }}</h4>
+                      <p>
+                        <span class="profession">{{ feedback.Possition }}</span
+                        ><span class="company-name">{{ feedback.Company }}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End Testimonial Single Thumb Item-->
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <!-- ENd Testimonial Slider - Thumbnail -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ...::: End Testimonial Display Section :::... -->
+</div>
+<!-- ...::: End Testimonial Display Section :::... -->
+
+<div class="section-top-gap-150"></div>
+
+{% endblock %}

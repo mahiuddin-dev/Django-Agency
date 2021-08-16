@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+ {% load static %} 
+ {% block title %} Contact {% endblock  %}
+ {% block style %}
+
+ <style>
+ #contact-form .form-message {
+  margin: 24px 0;
+}
+
+#contact-form .output_message {
+  display: block;
+  color: #fff;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 30px;
+}
+
+ #contact-form .output_message.success {
+  background: #0e4bbb;
+}
+
+ #contact-form .output_message.error {
+  background: #dc3545;
+}
+
+#contact-form .output_message.error:before {
+  font-family: FontAwesome;
+  content: "\f071";
+  padding-right: 10px;
+}
+ </style>
+ {% endblock %}
+
+ {% block body %}
+
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">Contact Us</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>Contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Contact Info Section :::... -->
+<div class="contact-info-section section-inner-padding-150 section-inner-bg">
+  <div class="box-wrapper">
+    <!-- Start Contact Box Info Wrapper -->
+    <div class="contact-box-info-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-10 offset-xl-1 col-12">
+            <ul class="contact-box-info-items">
+              
+              {% for branch in about %}
+              <!-- Start Contact Box Info Single Item -->
+              <li class="contact-box-info-single-item">
+                <h4 class="title">{{ branch.Branch_Name }}:</h4>
+                <div class="contact-box-info-text">
+                  <a class="contact-box-info-text-single" href="tel:{{ branch.Phone }}"
+                    ><span class="icon"><i class="icofont-phone"></i></span>
+                    <p> {{ branch.Phone }} </p>
+                  </a>
+                  <a
+                    class="contact-box-info-text-single"
+                    href="mailto:{{ branch.Email }}"
+                    ><span class="icon"
+                      ><i class="icofont-envelope-open"></i
+                    ></span>
+                    <p>{{ branch.Email }}</p>
+                  </a>
+                  <address class="contact-box-info-text-single">
+                    <span class="icon"
+                      ><i class="icofont-location-pin"></i
+                    ></span>
+                    <p>{{ branch.Address }}</p>
+                  </address>
+                </div>
+              </li>
+              <!-- End Contact Box Info Single Item -->
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Contact Box Info Wrapper -->
+  </div>
+</div>
+<!-- ...::: End Contact Info Section :::... -->
+
+<!-- ...::: Start Form Section :::... -->
+<div class="form-section section-inner-padding-150">
+  <div class="box-wrapper">
+    <div class="section-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2">
+            <div class="section-content section-content-gap-80 text-center">
+              <h6 class="section-tag tag-orange">Contact</h6>
+              <h3 class="section-title">Contact Us</h3>
+              <span class="icon-seperator"
+                ><img
+                  src="{% static 'images/icons/section-seperator-shape.png' %}"
+                  alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-10 offset-xl-1 col-12">
+            
+            <form id="contact-form" class="default-form" method="POST" action="/Contact/">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-lg-6 mb-20">
+                  <div class="default-form-single-item">
+                    <input
+                    class="form-inputs"
+                      name="name"
+                      type="text"
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-20">
+                  <div class="default-form-single-item">
+                    <input
+                    class="form-inputs"
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-20">
+                  <div class="default-form-single-item">
+                    <input
+                    class="form-inputs"
+                      name="tel"
+                      type="tel"
+                      placeholder="Phone No."
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-20">
+                  <div class="default-form-single-item">
+                    <input
+                    class="form-inputs"
+                      name="subject"
+                      type="text"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="default-form-single-item ">
+                    <textarea
+                    class="form-inputs"
+                      name="message"
+                      placeholder="Write a message..."
+                      rows="10"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                  <button
+                    type="submit"
+                    class="form-inputs btn btn-lg btn-default icon-right submit-btn"
+                  >
+                    Submit Now <i class="icofont-double-right"></i>
+                  </button>
+                </div>
+                <!-- <p class="form-messege">  </p> -->
+                <div class="col-12 form-message ">
+                  <span class=" output_message text-center font-weight-600 text-uppercase"></span>
+                </div>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Form Section :::... -->
+
+<!-- ...::: Start Map Section :::... -->
+<div class="map-section">
+  <div class="box-wrapper">
+    <div class="map-wrapper">
+      <!-- Start Map Area-->
+      <div class="gmap-box">
+        <iframe
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+        ></iframe>
+      </div>
+      <!-- End Map Area -->
+    </div>
+  </div>
+</div>
+<!-- ...::: End Map Section :::... -->
+
+{% endblock %}
+
+

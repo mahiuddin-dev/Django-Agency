@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Blog {% endblock  %}
+
+{% block body %}
+      
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">Blog Post</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>Blog</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Blog List Section :::... -->
+<div class="blog-list-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="blog-list-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Start Blog List Item -->
+            <div class="blog-list-items-full-width">
+
+              
+            
+            {% for post in page_obj %}               
+              <!-- Start Blog List Single Item -->
+              <div class="blog-list-single-item">
+                <a href="{% url 'Blog:BlogDetail' slug=post.slug %}" class="image"
+                  ><img
+                    src="{{ post.Image.url }}"
+                    alt=""
+                /></a>
+                <div class="content">
+                  <span class="author">By<a href="#"> {{ post.Name }} </a></span>
+                  <h5 class="title">
+                    <a href="{% url 'Blog:BlogDetail' slug=post.slug %}"
+                      > {{ post.Title }} </a
+                    >
+                  </h5>
+                  <p> {{ post.Short_Description }} </p>
+
+                  <div class="post-info">
+                    <span> {{ post.Time | date:"M d, Y" }} </span>
+                    <span> {{ post.Time | timesince }} ago</span>
+                  </div>
+                </div>
+              </div>
+              <!-- End Blog List Single Item -->
+              {% endfor %}
+
+            </div>
+            <!-- End Blog List Item -->
+
+            {% if page_obj %}
+             <!-- Start Page Pagination -->
+            <div class="d-flex justify-content-center">
+                <ul class="page-pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="active">
+                        <a href="?page={{ page_obj.previous_page_number }}"> Prev.</a>
+                    </li>
+                    {% endif %} 
+
+                    {% load l10n %} 
+
+                    {% for service in page_obj.paginator.page_range %}
+                    
+                    {% if page_obj.number == service %}
+                    <li class="active">
+                        <a href="?page={{ service }}"> 
+                            {{ service | localize }}
+                         </a>
+                    </li>
+                    {% else %}
+
+                    <li><a href="?page={{ service }}">{{ service }}</a></li>
+                    {% endif %} 
+                    {% endfor %} 
+
+                    {% if page_obj.has_next %}
+
+                    <li class="next">
+                        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+
+
+                    <!-- <li class="next"><a href="#"><i class="icofont-long-arrow-right"></i></a></li> -->
+
+                </ul>
+            </div>
+             <!-- Start Page Pagination -->
+             {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Blog List Section :::... -->
+
+<!-- Start Subscribe Banner -->
+<div class="subscribe-banner section-top-gap-150">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 col-xl-6">
+        <div class="content">
+          <h6 class="big-text">
+            Stay connect with us, get daily & weekly update.
+          </h6>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+          >Subscribe Now <i class="icofont-double-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subscribe Banner -->
+
+{% endblock %}

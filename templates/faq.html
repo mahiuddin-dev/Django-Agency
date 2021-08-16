@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% block title %} FAQ {% endblock  %}
+{% load static %} {% block body %}
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">Question & Answer</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start FAQ Section :::... -->
+<div class="faq-section section-inner-padding-150 faq-inner-bg">
+  <div class="box-wrapper">
+    <!-- Start Faq Wrapper -->
+    <div class="faq-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2 col-12">
+            <div class="faq-accordian-style-1 accordion" id="accordion-1">
+              <!-- Start Accordian Single Item -->
+              <div class="accordian-single-item accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo-1"
+                  >
+                    Do you know digital buying in house or third party?
+                  </button>
+                </h2>
+                <div
+                  id="demo-1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#accordion-1"
+                >
+                  <div class="accordion-body">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typeseing industry lorem Ipsum has been the industry ever
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scirambled it to make a type specimen only five
+                    centuries, but also the leap into electronic.
+                  </div>
+                </div>
+              </div>
+              <!-- End Accordian Single Item -->
+              <!-- Start Accordian Single Item -->
+              <div class="accordian-single-item accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo-2"
+                  >
+                    In which advertising verticals/categories do you specialize?
+                  </button>
+                </h2>
+                <div
+                  id="demo-2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordion-1"
+                >
+                  <div class="accordion-body">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typeseing industry lorem Ipsum has been the industry ever
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scirambled it to make a type specimen only five
+                    centuries, but also the leap into electronic.
+                  </div>
+                </div>
+              </div>
+              <!-- End Accordian Single Item -->
+              <!-- Start Accordian Single Item -->
+              <div class="accordian-single-item accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo-3"
+                  >
+                    What exactly do you mean by “white label”?
+                  </button>
+                </h2>
+                <div
+                  id="demo-3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordion-1"
+                >
+                  <div class="accordion-body">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typeseing industry lorem Ipsum has been the industry ever
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scirambled it to make a type specimen only five
+                    centuries, but also the leap into electronic.
+                  </div>
+                </div>
+              </div>
+              <!-- End Accordian Single Item -->
+              <!-- Start Accordian Single Item -->
+              <div class="accordian-single-item accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo-4"
+                  >
+                    What if my clients have technical questions and need help?
+                  </button>
+                </h2>
+                <div
+                  id="demo-4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordion-1"
+                >
+                  <div class="accordion-body">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typeseing industry lorem Ipsum has been the industry ever
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scirambled it to make a type specimen only five
+                    centuries, but also the leap into electronic.
+                  </div>
+                </div>
+              </div>
+              <!-- End Accordian Single Item -->
+              <!-- Start Accordian Single Item -->
+              <div class="accordian-single-item accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo-5"
+                  >
+                    Why should I work with Vici and not another digital
+                    provider?
+                  </button>
+                </h2>
+                <div
+                  id="demo-5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordion-1"
+                >
+                  <div class="accordion-body">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typeseing industry lorem Ipsum has been the industry ever
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scirambled it to make a type specimen only five
+                    centuries, but also the leap into electronic.
+                  </div>
+                </div>
+              </div>
+              <!-- End Accordian Single Item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Faq Wrapper -->
+  </div>
+</div>
+<!-- ...::: End FAQ Section :::... -->
+
+<!-- Start Subscribe Banner -->
+<div class="subscribe-banner">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 col-xl-6">
+        <div class="content">
+          <h6 class="big-text">
+            Stay connect with us, get daily & weekly update.
+          </h6>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+          >Subscribe Now <i class="icofont-double-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subscribe Banner -->
+
+{% endblock %}

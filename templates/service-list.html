@@ -1,0 +1,143 @@
+{% extends 'base.html' %} 
+{% block title %} Services {% endblock  %}
+{% load static %}
+{% block body %}
+
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">All Services</h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Home:Home' %}">Home</a></li>
+              <li>Services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Service Display Section :::... -->
+<div class="service-dispaly-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="service-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Start Service Items -->
+            <div class="service-items">
+              
+              {% for service in page_obj %}      
+              <!-- Start Service Single Items -->
+              <div class="service-single-item service-single-item-style-2 swiper-slide">
+                <div class="icon">
+                  <img src="{{ service.ServiceImage.url }}" alt="" />
+                  <img
+                    src="{{ service.Service_Hover_Image.url }}"
+                    alt=""
+                  />
+                </div>
+                <div class="content">
+                  <h5 class="title">
+                    <a href="{% url 'Services:ServiceList' slug=service.slug %}"> {{ service.Category }} </a>
+                  </h5>
+                  <p> {{ service.ShortDes }} </p>
+                  
+                  <a class="text-btn" href="{% url 'Services:ServiceList' slug=service.slug %}"
+                    >View Details
+                    <span class="arrow-icon">
+                      <img
+                        src="{% static 'images/icons/right-arrow-blue.png' %}"
+                        alt=""
+                      />
+                      <img
+                        src="{% static 'images/icons/right-arrow-white.png' %}"
+                        alt=""
+                      /> </span
+                  ></a>
+                </div>
+              </div>
+              <!-- End Service Single Items -->
+              {% endfor %}
+            </div>
+            <!-- End Service Items -->
+
+            {% if page_obj %}
+             <!-- Start Page Pagination -->
+            <div class="d-flex justify-content-center">
+                <ul class="page-pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="active">
+                        <a href="?page={{ page_obj.previous_page_number }}"> Prev.</a>
+                    </li>
+                    {% endif %} 
+
+                    {% load l10n %} 
+
+                    {% for service in page_obj.paginator.page_range %}
+                    
+                    {% if page_obj.number == service %}
+                    <li class="active">
+                        <a href="?page={{ service }}"> 
+                            {{ service | localize }}
+                         </a>
+                    </li>
+                    {% else %}
+
+                    <li><a href="?page={{ service }}">{{ service }}</a></li>
+                    {% endif %} 
+                    {% endfor %} 
+
+                    {% if page_obj.has_next %}
+
+                    <li class="next">
+                        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+
+
+                    <!-- <li class="next"><a href="#"><i class="icofont-long-arrow-right"></i></a></li> -->
+
+                </ul>
+            </div>
+             <!-- Start Page Pagination -->
+             {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Service Display Section :::... -->
+
+<!-- Start Subscribe Banner -->
+<div class="subscribe-banner section-top-gap-150">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 col-xl-6">
+        <div class="content">
+          <h6 class="big-text">
+            Stay connect with us, get daily & weekly update.
+          </h6>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+          >Subscribe Now <i class="icofont-double-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subscribe Banner -->
+
+{% endblock %}

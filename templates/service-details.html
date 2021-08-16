@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %} {{ Service.Category }} {% endblock  %}
+{% load static %}
+
+
+{% block body %}
+    
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title"> {{ Service.Title }} </h2>
+            <ul class="breadcrumb-nav">
+              <li><a href="{% url 'Services:Services' %}">Services</a></li>
+              <li>Service Details</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start Service Details Section :::... -->
+<div class="service-details-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="service-details-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="
+                custome-container-with-sidebar
+                d-flex
+                flex-column-reverse flex-lg-row
+              "
+            >
+              <div class="container-width-37 sidebar-leftside">
+                <div class="sidebar-wrapper">
+                  <!-- Start Sidebar Widget Single Item - Service Catagory -->
+                  <div class="sidebar-widget-singel-item widget-box-bg gray-bg">
+                    <h4 class="title">Category</h4>
+                    <ul class="widget-catagory">
+
+                    {% for catagory in service %}  
+                      <li>
+                        <a href="{% url 'Services:ServiceList' slug=catagory.slug %}">
+                            <i class="icofont-double-right"></i>
+                            {{ catagory.Category }}
+                        </a
+                        >
+                      </li>
+                    {% endfor %}
+
+                    </ul>
+                  </div>
+                  <!-- End Sidebar Widget Single Item - Service Catagory -->
+
+                  <!-- Start Sidebar Widget Single Item - Side Banner -->
+                  <div class="sidebar-widget-singel-item sidebar-banner">
+                    <div class="image text-center">
+                      <img
+                        class="img-fluid"
+                        src="{% static 'images/background/banner-img-1.png' %}"
+                        alt=""
+                      />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <a
+                        href="contact.html"
+                        class="btn btn-lg btn-default-alt icon-right"
+                        >Get Started <i class="icofont-double-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <!-- ENd Sidebar Widget Single Item - Side Banner -->
+                </div>
+              </div>
+
+              <div class="container-width-63">
+                <div class="default-text-content">
+                  <div class="default-content-hero-image">
+                    <img
+                      class="img-fluid"
+                      src="{{ Service.Service_Details_Image.url }}"
+                      alt=""
+                    />
+                  </div>
+
+                  <p> {{ Service.Description|safe }} </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Service Details Section :::... -->
+
+<!-- Start Subscribe Banner -->
+<div class="subscribe-banner section-top-gap-150">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 col-xl-6">
+        <div class="content">
+          <h6 class="big-text">
+            Stay connect with us, get daily & weekly update.
+          </h6>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="{% url 'Contact:Contact' %}" class="btn btn-lg btn-default icon-right"
+          >Subscribe Now <i class="icofont-double-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subscribe Banner -->
+
+{% endblock %}

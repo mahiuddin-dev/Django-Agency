@@ -1,0 +1,67 @@
+{% extends 'base.html' %} 
+{% block title %} Page Not Found {% endblock  %}
+{% load static %}
+{% block body %}
+
+<!-- Offcanvas Overlay -->
+<div class="offcanvas-overlay"></div>
+
+<!-- ...::: Start Breadcrumb Section :::... -->
+<div class="breadcrumb-section">
+  <div class="box-wrapper">
+    <div class="breadcrumb-wrapper">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="breadcrumb-title">404_Error</h2>
+            <ul class="breadcrumb-nav">
+              <li>404_Error</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End Breadcrumb Section :::... -->
+
+<!-- ...::: Start 404-Error Section :::... -->
+<div class="error-section section-top-gap-150">
+  <div class="box-wrapper">
+    <div class="error-img-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 offset-xl-2">
+            <div class="error-img">
+              <img
+                class="img-fluid"
+                src="{% static 'images/section-image/error-404.png' %}"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="error-wrapper section-inner-padding-150 error-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 offset-xl-3">
+            <div class="faq-content text-center">
+              <h3 class="title">Sorry, <span>page not found.</span></h3>
+              <p>
+                There are many variations of passages of lorem ipsum available
+              </p>
+              <a href="{% url 'Home:Home' %}" class="btn btn-lg btn-default icon-left"
+                ><i class="icofont-double-left"></i>Back to home</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...::: End 404-Error Section :::... -->
+
+{% endblock %}
